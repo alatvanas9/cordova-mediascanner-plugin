@@ -1,4 +1,4 @@
-package com.alpha.scanMedia;
+package org.xul13.scanmedia;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;

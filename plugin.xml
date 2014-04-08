@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.alpha.scanMedia" version="0.1.0">
+    <name>ScanMedia</name>
+    <description>Cordova Scan Media Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,android,media,scanner</keywords>
+    <js-module src="www/scanMedia.js" name="ScanMedia">
+        
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ScanMedia">
+                <param name="android-package" value="org.xul13.scanmedia"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/scanMedia.java" />
+    </platform>
+</plugin>
