@@ -5,11 +5,11 @@
     <description>Cordova Scan Media Plugin</description>
     <license>MIT</license>
     <keywords>cordova,android,media,scanner</keywords>
-    <js-module src="www/scanMedia.js" name="ScanMedia">
+    <js-module src="www/scanMedia.js" name="scanMedia">
     </js-module>
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="ScanMedia">
+            <feature name="scanMedia">
                 <param name="android-package" value="org.xul13.scanmedia"/>
             </feature>
         </config-file>
