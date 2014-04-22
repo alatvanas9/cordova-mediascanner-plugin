@@ -1,6 +1,6 @@
 <?xml version="0.1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="org.xul13.scanmedia" version="0.1.0">
+        id="org.brycem.scanmedia" version="0.1.0">
     <name>ScanMedia</name>
     <description>Cordova Scan Media Plugin</description>
     <license>MIT</license>
@@ -10,7 +10,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="scanMedia">
-                <param name="android-package" value="org.xul13.scanmedia"/>
+                <param name="android-package" value="org.brycem.scanmedia"/>
             </feature>
         </config-file>
 
