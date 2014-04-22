@@ -7,6 +7,7 @@
     <keywords>cordova,android,media,scanner</keywords>
     <js-module src="www/scanMedia.js" name="scanMedia">
     </js-module>
+    <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="scanMedia">
@@ -14,6 +15,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/scanMedia.java" />
+        <source-file src="src/android/scanMedia.java" target-dir="src/org/brycem/scanmedia"/>
     </platform>
+    
 </plugin>
