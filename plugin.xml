@@ -6,6 +6,7 @@
     <license>MIT</license>
     <keywords>cordova,android,media,scanner</keywords>
     <js-module src="www/scanMedia.js" name="scanMedia">
+        <clobbers target="scanmedia" />
     </js-module>
     <!-- android -->
     <platform name="android">
