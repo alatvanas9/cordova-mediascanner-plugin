@@ -4,7 +4,7 @@
     <description>Cordova Scan Media Plugin</description>
     <license>MIT</license>
     <keywords>cordova,android</keywords>
-    <js-module src="www/scanMedia.js" name="ScanMedia">
+    <js-module src="www/scanMedia.js" name="scanMedia">
         <clobbers target="scanMediaPlugin" />
     </js-module>
     
