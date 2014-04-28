@@ -4,18 +4,20 @@
     <description>Cordova Scan Media Plugin</description>
     <license>MIT</license>
     <keywords>cordova,android</keywords>
-    <js-module src="www/ScanMedia.js" name="ScanMedia">
-        <clobbers target="window.plugins.scanMedia" />
+    <js-module src="www/scanMedia.js" name="ScanMedia">
+        <clobbers target="scanMediaPlugin" />
     </js-module>
+    
     <!-- android -->
+    <!-- Cordova >= 3.0.0 -->
     <platform name="android">
-        <config-file target="config.xml" parent="/*">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ScanMedia">
                 <param name="android-package" value="org.brycem.ScanMedia"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/ScanMedia.java" target-dir="src/org/brycem"/>
+        <source-file src="src/android/org/brycem/ScanMedia.java" target-dir="src/org/brycem"/>
     </platform>
     
 </plugin>
