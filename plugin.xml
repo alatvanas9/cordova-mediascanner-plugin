@@ -10,12 +10,12 @@
     <!-- android -->
     <platform name="android">
         <config-file target="config.xml" parent="/*">
-            <feature name="scanMedia">
-                <param name="android-package" value="org.brycem.scanmedia.ScanMedia"/>
+            <feature name="ScanMedia">
+                <param name="android-package" value="org.brycem.ScanMedia"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/ScanMedia.java" target-dir="src/org/brycem/scanmedia"/>
+        <source-file src="src/android/ScanMedia.java" target-dir="src/org/brycem"/>
     </platform>
     
 </plugin>
