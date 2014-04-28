@@ -8,4 +8,5 @@ The original is at http://stackoverflow.com/questions/19447557/phonegap-how-to-t
 
 ## Installation
 Using Cordova CLI:
-    Cordova plugin add https://github.com/Xul13/cordova-mediascanner-plugin
+
+    cordova plugin add https://github.com/Xul13/cordova-mediascanner-plugin
