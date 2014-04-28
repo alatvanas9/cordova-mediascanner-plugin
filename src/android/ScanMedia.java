@@ -33,6 +33,7 @@ public class ScanMedia extends CordovaPlugin {
         } catch (InterruptedException e) {
             e.printStackTrace();
             callbackContext.error(e.getMessage());
+            return false;
         }
     }
 
