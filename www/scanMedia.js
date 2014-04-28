@@ -1,15 +1,9 @@
-(function() {
-    /* This increases plugin compatibility */
-    //var cordovaRef = window.PhoneGap || window.Cordova || window.cordova; // old to new fallbacks
+cordova.define("scanMediaPlugin", function(require, exports, module) {
+    var exec = require('cordova/exec');
 
-    /**
-    * The Java to JavaScript Gateway 'magic' class 
-    */
-    var scanMediaPlugin = function(){
-
-        scanMediaPlugin.prototype.mediaScanner = function(string, win, fail) {
-            cordova.exec(win, fail, "ScanMedia", "mediaScanner", [string]);
-        };
+    var scanMediaPlugin = function() {};
+    
+    scanMediaPlugin.prototype.mediaScanner = function(string, win, fail) {
+        exec(win, fail, "ScanMedia", "mediaScanner", [string]);
     };
-
-    })();
+});
