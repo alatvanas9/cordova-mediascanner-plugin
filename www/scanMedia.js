@@ -5,9 +5,9 @@
     /**
     * The Java to JavaScript Gateway 'magic' class 
     */
-    scanMediaPlugin = function(){
+    var scanMediaPlugin = function(){
 
-        scanMediaPlugin.prototype.mediaScanner = function(string, win, fail) {
+        scanMediaPlugin.mediaScanner = function(string, win, fail) {
             cordova.exec(win, fail, "ScanMedia", "mediaScanner", [string]);
         };
     };
