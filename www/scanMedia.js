@@ -7,7 +7,7 @@
     */
     var scanMediaPlugin = function(){
 
-        scanMediaPlugin.mediaScanner = function(string, win, fail) {
+        scanMediaPlugin.prototype.mediaScanner = function(string, win, fail) {
             cordova.exec(win, fail, "ScanMedia", "mediaScanner", [string]);
         };
     };
