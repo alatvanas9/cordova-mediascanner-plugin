@@ -12,6 +12,7 @@
         <config-file target="config.xml" parent="/*">
             <feature name="ScanMedia">
                 <param name="android-package" value="org.brycem.scanmedia.ScanMedia"/>
+                <param name="onload" value="true" />
             </feature>
         </config-file>
 
