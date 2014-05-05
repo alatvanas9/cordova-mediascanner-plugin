@@ -4,6 +4,10 @@ ScanMediaPlugin.prototype.scanFile = function(string, win, fail) {
     cordova.exec(win, fail, "ScanMedia", "mediaScanner", [string]);
 };
 
+ScanMediaPlugin.prototype.test = function() {
+    console.log("Hello World");
+};
+
 ScanMediaPlugin.install = function () {
     console.log("ScanMediaPlugin: Initializing")
     if(!window.plugins){
@@ -12,7 +16,8 @@ ScanMediaPlugin.install = function () {
     }
 
     window.plugins.scanmedia = new ScanMediaPlugin();
-    console.log("ScanMedia: " + JSON.stringify(window.plugins.scanmedia));
+    window.plugins.scanmedia.test();
+    
     return window.plugins.scanmedia;
 };
 
