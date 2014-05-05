@@ -26,13 +26,10 @@ public class ScanMedia extends CordovaPlugin {
 
             return this.mediaScanner(absolutePath, callbackContext);
 
-        } catch (JSONException| InterruptedException e) {
-            e.printStackTrace();
-            callbackContext.error(e.getMessage());
-            return false;
         } catch (Exception e) {
             e.printStackTrace();
             callbackContext.error(e.getMessage());
+            return false;
         }
     }
 
