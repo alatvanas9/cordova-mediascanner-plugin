@@ -1,9 +1,16 @@
-cordova.define("scanMediaPlugin", function(require, exports, module) {
-    var exec = require('cordova/exec');
+function ScanMediaPlugin() {}
 
-    var scanMediaPlugin = function() {};
-    
-    scanMediaPlugin.prototype.mediaScanner = function(string, win, fail) {
-        exec(win, fail, "ScanMedia", "mediaScanner", [string]);
-    };
-});
+ScanMediaPlugin.prototype.scanFile = function(string, win, fail) {
+    exec(win, fail, "ScanMedia", "mediaScanner", [string]);
+};
+
+ScanMediaPlugin.install = function () {
+    if(!window.plugins){
+        window.plugins = {};
+    }
+
+    window.plugins.scanmedia = new ScanMediaPlugin();
+    return window.plugins.scanmedia;
+};
+
+cordova.addConstructor(ScanMediaPlugin.install);
