@@ -12,12 +12,14 @@ import android.net.Uri;
 import android.util.Log;
 
 public class ScanMedia extends CordovaPlugin {
-
+    public static final String ACTION_MEDIASCANNER = "mediaScanner";
+    
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (!action.equals("mediaScanner")) {
+        if (!action.equals(ACTION_MEDIASCANNER)) {
             return false;
         }
+        
         try {
             String absolutePath = args.getString(0);
             if (absolutePath.startsWith("data:image")) {

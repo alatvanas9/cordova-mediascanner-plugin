@@ -1,12 +1,12 @@
 function ScanMediaPlugin() {}
-
+        
 ScanMediaPlugin.prototype.scanFile = function(string, win, fail) {
     console.log("ScanMediaPlugin: scanFile called");
     cordova.exec(win, fail, "ScanMedia", "mediaScanner", [string]);
 };
 
 ScanMediaPlugin.prototype.test = function() {
-    console.log("Hello World");
+    console.log("ScanMediaPlugin: Javascript Interface Loaded");
 };
 
 ScanMediaPlugin.install = function () {
