@@ -50,7 +50,8 @@ public class ScanMedia extends CordovaPlugin {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         //File f = new File(filename);
 
-        Uri contentUri = Uri.parse(absolutePath.toString());
+        Uri contentUri = Uri.parse(absolutePath);
+        Log.d(LOGTAG, "mediaScanner: Uri= " + absolutePath);
         mediaScanIntent.setData(contentUri);
         System.out.println("from internal?" + contentUri);
         this.cordova.getActivity().sendBroadcast(mediaScanIntent);
