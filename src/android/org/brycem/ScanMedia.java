@@ -29,6 +29,7 @@ public class ScanMedia extends CordovaPlugin {
             }
 
             int storageState = getMediaStorageState();
+            Log.d(LOGTAG, storageState);
             
             switch(storageState)
             {
@@ -90,7 +91,6 @@ public class ScanMedia extends CordovaPlugin {
         else
         {
             return 2; //No Read or Write access
-        }
         }
     }
 }
