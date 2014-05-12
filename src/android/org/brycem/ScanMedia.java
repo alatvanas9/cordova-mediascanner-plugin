@@ -53,7 +53,7 @@ public class ScanMedia extends CordovaPlugin {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, contentUri);
         //File f = new File(filename);
 
-        this.cordova.getActivity().sendBroadcast(mediaScanIntent, contentUri);
+        this.cordova.getActivity().sendBroadcast(mediaScanIntent);
         return true;
     }
 }
