@@ -13,11 +13,12 @@ import android.util.Log;
 
 public class ScanMedia extends CordovaPlugin {
     public static final String ACTION_MEDIASCANNER = "mediaScanner";
+    private static final String LOGTAG = "scanmediaTag"
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (!action.equals(ACTION_MEDIASCANNER)) {
-            Log.d("Wrong action detected: " + action);
+            Log.d(LOGTAG, "Wrong action detected: " + action);
             return false;
         }
         
@@ -30,12 +31,12 @@ public class ScanMedia extends CordovaPlugin {
             return this.mediaScanner(absolutePath, callbackContext);
 
         } catch (JSONException e) {
-            Log.e("Error: " + e.getMessage());
+            Log.e(LOGTAG, "Error: " + e.getMessage());
             e.printStackTrace();
             callbackContext.error(e.getMessage());
             return false;
         } catch (InterruptedException e) {
-            Log.e("Error: " + e.getMessage());
+            Log.e(LOGTAG, "Error: " + e.getMessage());
             e.printStackTrace();
             callbackContext.error(e.getMessage());
             return false;
@@ -44,13 +45,15 @@ public class ScanMedia extends CordovaPlugin {
 
     private boolean mediaScanner(String absolutePath, CallbackContext callbackContext) throws InterruptedException, JSONException
     {
-          Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-          //File f = new File(filename);
+        Log.d(LOGTAG, "mediaScanner: attempting to create new intent");
+        
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        //File f = new File(filename);
 
-          Uri contentUri = Uri.parse(absolutePath.toString());
-          mediaScanIntent.setData(contentUri);
-          System.out.println("from internal?" + contentUri);
-          this.cordova.getActivity().sendBroadcast(mediaScanIntent);
-          return true;
+        Uri contentUri = Uri.parse(absolutePath.toString());
+        mediaScanIntent.setData(contentUri);
+        System.out.println("from internal?" + contentUri);
+        this.cordova.getActivity().sendBroadcast(mediaScanIntent);
+        return true;
     }
 }
