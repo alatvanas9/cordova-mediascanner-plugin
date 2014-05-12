@@ -47,9 +47,6 @@ public class ScanMedia extends CordovaPlugin {
                     callbackContext.error("Storage does not have Read or Write Access");
                     return false;
             }
-            
-            //return this.mediaScanner(absolutePath, callbackContext);
-            return this.scanFile(absolutePath, callbackContext);
 
         } catch (JSONException e) {
             Log.e(LOGTAG, "Error: " + e.getMessage());
