@@ -28,7 +28,22 @@ public class ScanMedia extends CordovaPlugin {
                 absolutePath = absolutePath.substring(absolutePath.indexOf(',') + 1);
             }
 
-            return this.mediaScanner(absolutePath, callbackContext);
+            int storageState = getMediaStorageState();
+            
+            switch(storageState)
+            {
+                case 0:
+                    return this.mediaScanner(absolutePath, callbackContext);
+                case 1:
+                    callbackContext.error("Storage is Read Only.");
+                    return false;
+                case 2:
+                    callbackContext.error("Storage does not have Read or Write Access");
+                    return false;
+            }
+            
+            //return this.mediaScanner(absolutePath, callbackContext);
+            return this.scanFile(absolutePath, callbackContext);
 
         } catch (JSONException e) {
             Log.e(LOGTAG, "Error: " + e.getMessage());
@@ -58,5 +73,24 @@ public class ScanMedia extends CordovaPlugin {
         callbackContext.success();
         
         return true;
+    }
+    
+    public static int getMediaStorageState()
+    {
+        final String state = Environment.getExternalStorageState();
+        
+        if(Environment.MEDIA_MOUNTED.equals(state))
+        {
+            return 0; //Read & Write
+        }
+        else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
+        {
+            return 1; //Read Only
+        }
+        else
+        {
+            return 2; //No Read or Write access
+        }
+        }
     }
 }
