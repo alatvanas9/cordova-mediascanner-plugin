@@ -34,7 +34,7 @@ public class ScanMedia extends CordovaPlugin {
             }
 
             int storageState = getMediaStorageState();
-            Log.d(LOGTAG, storageState);
+            Log.d(LOGTAG, Integer.toString(storageState));
             
             switch(storageState)
             {
