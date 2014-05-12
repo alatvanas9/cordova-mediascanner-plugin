@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Environment;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
@@ -16,15 +17,19 @@ public class ScanMedia extends CordovaPlugin {
     private static final String LOGTAG = "scanmediaTag";
     
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (!action.equals(ACTION_MEDIASCANNER)) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
+    {
+        if (!action.equals(ACTION_MEDIASCANNER)) 
+        {
             Log.w(LOGTAG, "Wrong action detected: " + action);
             return false;
         }
         
-        try {
+        try 
+        {
             String absolutePath = args.getString(0);
-            if (absolutePath.startsWith("data:image")) {
+            if (absolutePath.startsWith("data:image")) 
+            {
                 absolutePath = absolutePath.substring(absolutePath.indexOf(',') + 1);
             }
 
