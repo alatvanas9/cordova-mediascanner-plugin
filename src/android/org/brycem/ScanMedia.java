@@ -59,6 +59,7 @@ public class ScanMedia extends CordovaPlugin {
             callbackContext.error(e.getMessage());
             return false;
         }
+        return true;
     }
 
     private boolean mediaScanner(String absolutePath, CallbackContext callbackContext) throws InterruptedException, JSONException
