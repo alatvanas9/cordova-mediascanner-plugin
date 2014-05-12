@@ -15,6 +15,9 @@ import android.util.Log;
 public class ScanMedia extends CordovaPlugin {
     public static final String ACTION_MEDIASCANNER = "mediaScanner";
     private static final String LOGTAG = "scanmediaTag";
+    private static final int STATE_RW = 0;
+    private static final int STATE_READ = 1;
+    private static final int STATE_UNKOWN = 2;
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
@@ -38,12 +41,12 @@ public class ScanMedia extends CordovaPlugin {
             
             switch(storageState)
             {
-                case 0:
+                case STATE_RW:
                     return this.mediaScanner(absolutePath, callbackContext);
-                case 1:
+                case STATE_READ:
                     callbackContext.error("Storage is Read Only.");
                     return false;
-                case 2:
+                case STATE_UNKOWN:
                     callbackContext.error("Storage does not have Read or Write Access");
                     return false;
             }
@@ -85,15 +88,15 @@ public class ScanMedia extends CordovaPlugin {
         
         if(Environment.MEDIA_MOUNTED.equals(state))
         {
-            return 0; //Read & Write
+            return STATE_RW; //Read & Write
         }
         else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
         {
-            return 1; //Read Only
+            return STATE_READ; //Read Only
         }
         else
         {
-            return 2; //No Read or Write access
+            return STATE_UNKOWN; //No Read or Write access
         }
     }
 }
