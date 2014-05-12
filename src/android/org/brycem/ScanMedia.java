@@ -47,14 +47,13 @@ public class ScanMedia extends CordovaPlugin {
     {
         Log.d(LOGTAG, "mediaScanner: attempting to create new intent");
         
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        //File f = new File(filename);
-
         Uri contentUri = Uri.parse(absolutePath);
         Log.d(LOGTAG, "mediaScanner: Uri= " + absolutePath);
-        mediaScanIntent.setData(contentUri);
-        System.out.println("from internal?" + contentUri);
-        this.cordova.getActivity().sendBroadcast(mediaScanIntent);
+        
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, contentUri);
+        //File f = new File(filename);
+
+        this.cordova.getActivity().sendBroadcast(mediaScanIntent, contentUri);
         return true;
     }
 }
