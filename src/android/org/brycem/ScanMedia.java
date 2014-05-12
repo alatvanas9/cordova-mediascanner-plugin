@@ -18,7 +18,7 @@ public class ScanMedia extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (!action.equals(ACTION_MEDIASCANNER)) {
-            Log.d(LOGTAG, "Wrong action detected: " + action);
+            Log.w(LOGTAG, "Wrong action detected: " + action);
             return false;
         }
         
@@ -50,10 +50,13 @@ public class ScanMedia extends CordovaPlugin {
         Uri contentUri = Uri.parse(absolutePath);
         Log.d(LOGTAG, "mediaScanner: Uri= " + absolutePath);
         
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file:///mnt/sdcard"));
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, contentUri);
         //File f = new File(filename);
 
         this.cordova.getActivity().sendBroadcast(mediaScanIntent);
+        
+        callbackContext.success();
+        
         return true;
     }
 }
