@@ -17,6 +17,7 @@ public class ScanMedia extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (!action.equals(ACTION_MEDIASCANNER)) {
+            Log.d("Wrong action detected: " + action);
             return false;
         }
         
@@ -29,10 +30,12 @@ public class ScanMedia extends CordovaPlugin {
             return this.mediaScanner(absolutePath, callbackContext);
 
         } catch (JSONException e) {
+            Log.e("Error: " + e.getMessage());
             e.printStackTrace();
             callbackContext.error(e.getMessage());
             return false;
         } catch (InterruptedException e) {
+            Log.e("Error: " + e.getMessage());
             e.printStackTrace();
             callbackContext.error(e.getMessage());
             return false;
