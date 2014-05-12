@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class ScanMedia extends CordovaPlugin {
     public static final String ACTION_MEDIASCANNER = "mediaScanner";
-    private static final String LOGTAG = "scanmediaTag"
+    private static final String LOGTAG = "scanmediaTag";
     
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
